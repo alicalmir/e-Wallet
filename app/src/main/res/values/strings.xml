@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">eWallet</string>
+    <string name="email_login">Enter email</string>
+    <string name="password_login">Enter password</string>
+    <string name="login_login">LOGIN</string>
+    <string name="register_text">Do not have an account?</string>
+    <string name="register_register">REGISTER</string>
+</resources>
