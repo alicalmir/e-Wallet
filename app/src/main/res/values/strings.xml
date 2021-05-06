@@ -4,5 +4,10 @@
     <string name="password_login">Enter password</string>
     <string name="login_login">LOGIN</string>
     <string name="register_text">Do not have an account?</string>
+    <string name="login_text">Already have an account?</string>
     <string name="register_register">REGISTER</string>
+    <string name="register_form">PLEASE ENTER INFORMATION</string>
+    <string name="name_register">Name and Surname</string>
+    <string name="email_register">Email</string>
+    <string name="password_register">Password</string>
 </resources>
