@@ -10,4 +10,7 @@
     <string name="name_register">Name and Surname</string>
     <string name="email_register">Email</string>
     <string name="password_register">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
