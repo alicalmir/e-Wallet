@@ -7,26 +7,33 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
+import org.w3c.dom.Text;
+
 import static android.nfc.NfcAdapter.EXTRA_ID;
 
 
 public class HomeActivity extends AppCompatActivity {
-
+    private EditText name, place, date, amount;
     MeowBottomNavigation bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        name=findViewById(R.id.name_of_change_dash);
+        place=findViewById(R.id.place_of_change_dash);
+        date=findViewById(R.id.date_of_change_dash);
+        amount=findViewById(R.id.amount_of_change_dash);
 
-
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if(extras==null){
             Intent intent1 = new Intent(this, LoginActivity.class);
@@ -35,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
             else startActivity(intent1);
         }else{
             int id = extras.getInt(EXTRA_ID);
-        }
+        }*/
 
         // variable
         bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -60,22 +67,25 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-            bottomNavigation.setCount(1,"10");
-            bottomNavigation.show(1,true);
-            bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
-                @Override
-                public void onClickItem(MeowBottomNavigation.Model item) {
-                    Toast.makeText(getApplicationContext(), "You clicked" , Toast.LENGTH_SHORT).show();
-                }
-            });
-            bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
-                @Override
-                public void onReselectItem(MeowBottomNavigation.Model item) {
-                    Toast.makeText(getApplicationContext(), "You reselected" , Toast.LENGTH_SHORT).show();
-                }
-            });
+        bottomNavigation.setCount(1,"10");
+        bottomNavigation.show(1,true);
+        bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
+            @Override
+            public void onClickItem(MeowBottomNavigation.Model item) {
+                Toast.makeText(getApplicationContext(), "You clicked" , Toast.LENGTH_SHORT).show();
+            }
+        });
+        bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
+            @Override
+            public void onReselectItem(MeowBottomNavigation.Model item) {
+                Toast.makeText(getApplicationContext(), "You reselected" , Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-
+    public void addChange(View view) {
+        Fragment fragment = new DashboardFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, fragment).commit();
     }
 
     private void loadfragment(Fragment fragment) {

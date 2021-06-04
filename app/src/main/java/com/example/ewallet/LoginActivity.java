@@ -39,13 +39,13 @@ public class LoginActivity extends AppCompatActivity {
         Users user = UsersDatabase.getInstance(this).usersDao().getUser(email.getText().toString(), password.getText().toString());
 
         if(user != null){
-                intent.putExtra(String.valueOf(EXTRA_ID), user.getId());
-                if(intent.resolveActivity(getPackageManager()) == null)
-                    Log.i("error", "No home activity");
-                else startActivity(intent);
-            }else {
-                Toast.makeText(this, "Enter correct email or password", Toast.LENGTH_SHORT).show();
-            }
+            intent.putExtra(String.valueOf(EXTRA_ID), user.getId());
+            if(intent.resolveActivity(getPackageManager()) == null)
+                Log.i("error", "No home activity");
+            else startActivity(intent);
+        }else {
+            Toast.makeText(this, "Enter correct email or password", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
