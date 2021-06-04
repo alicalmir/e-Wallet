@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
+import static android.nfc.NfcAdapter.EXTRA_ID;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -19,6 +24,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if(extras==null){
+            Intent intent1 = new Intent(this, LoginActivity.class);
+            if(intent1.resolveActivity(getPackageManager()) == null)
+                Log.i("error", "No login activity");
+            else startActivity(intent1);
+        }else{
+            int id = extras.getInt(EXTRA_ID);
+        }
 
         // variable
         bottomNavigation = findViewById(R.id.bottom_navigation);
