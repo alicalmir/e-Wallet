@@ -20,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button register;
     public static int EXTRA_ID;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +46,16 @@ public class RegisterActivity extends AppCompatActivity {
     } */
 
     public void register(View view){
-        Users user = new Users(nameSurname.toString(), email.getText().toString(), password.getText().toString(), dob.getText().toString());
+        Users user = new Users(nameSurname.getText().toString(), email.getText().toString(), password.getText().toString(), dob.getText().toString());
         Users check_user=UsersDatabase.getInstance(this).usersDao().getEmail(email.getText().toString());
         if (check_user == null) {
         UsersDatabase.getInstance(this).usersDao().add(user);
         int id = UsersDatabase.getInstance(this).usersDao().getId(email.getText().toString(), password.getText().toString());
 
         Intent intent = new Intent(this, HomeActivity.class);
+
+
+
         intent.putExtra(String.valueOf(EXTRA_ID), id);
         if(intent.resolveActivity(getPackageManager()) == null)
             Log.i("error", "No home activity");

@@ -27,7 +27,9 @@ public class UserFragment extends Fragment {
     private TextView user_fullname;
     private TextView email;
     private TextView date;
-    String test_full_name;
+    String passed_fullname;
+    String passed_email;
+    String passed_birth;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -36,8 +38,10 @@ public class UserFragment extends Fragment {
     public UserFragment() {
         // Required empty public constructor
     }
-    public UserFragment(String fullname) {
-        test_full_name=fullname;
+    public UserFragment(String fullname,String email,String birth) {
+        passed_fullname=fullname;
+        passed_email=email;
+        passed_birth=birth;
     }
 
     /**
@@ -90,7 +94,11 @@ public class UserFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         user_fullname = getView().findViewById(R.id.user_fullname);
-        user_fullname.setText(test_full_name.toString());
+        email=getView().findViewById(R.id.user_email);
+        date=getView().findViewById(R.id.user_date);
+        user_fullname.setText("Full name: "+passed_fullname);
+        email.setText("Email: "+passed_email);
+        date.setText("Birth: "+passed_birth);
 
     }
 

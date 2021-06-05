@@ -17,6 +17,8 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     public static int EXTRA_ID;
     public static String FULL_NAME;
+    public static String EMAIL ="com.example.ewallet.email";
+    public static String BIRTH="com.example.ewallet.birth";
     
 
     @Override
@@ -37,16 +39,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view){
-        String full_name=email.getText().toString();
+
         Intent intent = new Intent(this, HomeActivity.class);
         Users user = UsersDatabase.getInstance(this).usersDao().getUser(email.getText().toString(), password.getText().toString());
-        
-        
+
         if(user != null){
+            String full_name=user.getFullname();
+            String email=user.getEmail();
+            String birth=user.getDob();
+
+            intent.putExtra(FULL_NAME,full_name);
+            intent.putExtra(EMAIL,email);
+            intent.putExtra(BIRTH,birth);
+
             intent.putExtra(String.valueOf(EXTRA_ID), user.getId());
             if(intent.resolveActivity(getPackageManager()) == null)
                 Log.i("error", "No home activity");
-            else    intent.putExtra(FULL_NAME,full_name); startActivity(intent);
+            else  startActivity(intent);
         }else {
             Toast.makeText(this, "Enter correct email or password", Toast.LENGTH_SHORT).show();
         }

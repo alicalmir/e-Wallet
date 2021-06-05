@@ -36,8 +36,11 @@ public class HomeActivity extends AppCompatActivity {
         amount=findViewById(R.id.amount_of_change_dash);
 
         Intent intent = getIntent();
-        String full_name=intent.getStringExtra(LoginActivity.FULL_NAME);
         Bundle extras = intent.getExtras();
+        String full_name=intent.getStringExtra(LoginActivity.FULL_NAME);
+        String email=intent.getStringExtra(LoginActivity.EMAIL);
+        String birth=intent.getStringExtra(LoginActivity.BIRTH);
+
 
         if(extras==null){
             Intent intent1 = new Intent(this, LoginActivity.class);
@@ -67,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 2:
                         fragment=new HistoryFragment(); break;
                     case 3:
-                        fragment=new UserFragment(full_name); break;
+                        fragment=new UserFragment(full_name,email,birth); break;
                 } loadfragment(fragment);
 
             }
@@ -87,11 +90,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
+/*
     public void addChange(View view) {
         Fragment fragment = new DashboardFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, fragment).commit();
-    }
+    } */
 
     private void loadfragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
