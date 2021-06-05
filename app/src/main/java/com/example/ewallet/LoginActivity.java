@@ -16,6 +16,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView register, email, password;
     Button login;
     public static int EXTRA_ID;
+    public static String FULL_NAME;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +37,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view){
+        String full_name=email.getText().toString();
         Intent intent = new Intent(this, HomeActivity.class);
         Users user = UsersDatabase.getInstance(this).usersDao().getUser(email.getText().toString(), password.getText().toString());
-
+        
+        
         if(user != null){
             intent.putExtra(String.valueOf(EXTRA_ID), user.getId());
             if(intent.resolveActivity(getPackageManager()) == null)
                 Log.i("error", "No home activity");
-            else startActivity(intent);
+            else    intent.putExtra(FULL_NAME,full_name); startActivity(intent);
         }else {
             Toast.makeText(this, "Enter correct email or password", Toast.LENGTH_SHORT).show();
         }

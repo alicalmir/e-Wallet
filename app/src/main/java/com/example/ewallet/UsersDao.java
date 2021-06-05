@@ -21,4 +21,9 @@ public interface UsersDao {
 
     @Query("SELECT id FROM users WHERE email = :email AND password = :password")
     public int getId(String email, String password);
+
+    @Query("SELECT * FROM users WHERE email =:email")
+    public Users getEmail(String email);
+
+
 }

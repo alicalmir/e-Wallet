@@ -24,17 +24,21 @@ public class HomeActivity extends AppCompatActivity {
     private EditText name, place, date, amount;
     MeowBottomNavigation bottomNavigation;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
         name=findViewById(R.id.name_of_change_dash);
         place=findViewById(R.id.place_of_change_dash);
         date=findViewById(R.id.date_of_change_dash);
         amount=findViewById(R.id.amount_of_change_dash);
 
-        /*Intent intent = getIntent();
+        Intent intent = getIntent();
+        String full_name=intent.getStringExtra(LoginActivity.FULL_NAME);
         Bundle extras = intent.getExtras();
+
         if(extras==null){
             Intent intent1 = new Intent(this, LoginActivity.class);
             if(intent1.resolveActivity(getPackageManager()) == null)
@@ -42,7 +46,8 @@ public class HomeActivity extends AppCompatActivity {
             else startActivity(intent1);
         }else{
             int id = extras.getInt(EXTRA_ID);
-        }*/
+
+        }
 
         // variable
         bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -62,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 2:
                         fragment=new HistoryFragment(); break;
                     case 3:
-                        fragment=new UserFragment(); break;
+                        fragment=new UserFragment(full_name); break;
                 } loadfragment(fragment);
 
             }
