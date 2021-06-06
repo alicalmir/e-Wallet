@@ -25,4 +25,6 @@ public interface ChangesDao {
    /* @Query("SELECT longitude, latitude FROM changes WHERE id =:id")
     public List<String> getChangePlace(int id);*/
 
+    @Query("SELECT amount FROM changes WHERE usersId = :id LIMIT 1")
+    public double getAmount(int id);
 }

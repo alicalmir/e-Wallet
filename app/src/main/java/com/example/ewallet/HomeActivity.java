@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
 
@@ -24,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     MeowBottomNavigation bottomNavigation;
     private int id;
     private String full_name, email, dob;
+    public static int EXTRA_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,5 +91,14 @@ public class HomeActivity extends AppCompatActivity {
     private void loadfragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
 
+    }
+
+    public void addChanges(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(String.valueOf(this.EXTRA_ID), id);
+
+        if(intent.resolveActivity(getPackageManager()) == null)
+            Log.i("error", "No main activity");
+        else  startActivity(intent);
     }
 }

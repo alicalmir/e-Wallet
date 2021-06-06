@@ -1,6 +1,7 @@
 package com.example.ewallet;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -94,6 +95,11 @@ public class UserFragment extends Fragment {
         email.setText("Email: "+passed_email);
         date.setText("Birth: "+passed_birth);
         money.setText(""+users.getMoney());
+        if(users.getMoney()<0){
+            money.setTextColor(Color.parseColor("#e85b51"));
+        }else{
+            money.setTextColor(Color.parseColor("#02c22f"));
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

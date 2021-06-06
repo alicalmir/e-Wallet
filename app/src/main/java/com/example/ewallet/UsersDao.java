@@ -4,14 +4,15 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface UsersDao {
     @Insert
     public void add(Users user);
 
-    @Delete
-    public void delete(Users user);
+    @Update
+    public void update(Users user);
 
     @Query("SELECT * FROM users WHERE id = :id")
     public Users get(int id);

@@ -14,7 +14,12 @@
     <string name="welcome_message">Welcome back!</string>
     <string name="changes_message">Have there been changes?</string>
     <string name="changes_message1">Apply them now! </string>
-    <string name="changes_message2">Make a change:</string>
+    <string name="changes_message2">Make a change</string>
+    <string name="cancle_button">Cancel</string>
+    <string name="changes_message3">With eWallet you can now keep track of your savings and spending!</string>
+    <string name="changes_message4">Every time when you spend or earn money, make a change in eWallet.</string>
+    <string name="changes_message5">eWallet will save every change in database and You can look at them whenever you want!</string>
+    <string name="changes_message6">This application is made by Naida Fatić and Ajdin Pašić.</string>
     <string name="current_state_message">Current state in wallet:</string>
     <string name="name_of_change">Name</string>
     <string name="place_of_change">Place</string>
