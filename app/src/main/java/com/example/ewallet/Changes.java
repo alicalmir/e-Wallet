@@ -90,5 +90,13 @@ public class Changes {
     public void setDate(String date) {
         this.date = date;
     }
-
+/*
+    @Override
+    public String toString() {
+        return this.getName()+" "+this.getLongitude()+" "+this.getLatitude()+" "+this.getAmount()+" "+this.getDate();
+    } */
+    @Override
+    public String toString() {
+        return this.name+" "+this.longitude+" "+this.amount+" "+this.date;
+    }
 }

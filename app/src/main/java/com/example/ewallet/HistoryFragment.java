@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,9 +28,15 @@ public class HistoryFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private int id;
+
+
 
     public HistoryFragment() {
         // Required empty public constructor
+    }
+    public HistoryFragment(int id) {
+       this.id=id;
     }
 
     /**
@@ -52,6 +63,8 @@ public class HistoryFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
     }
 
@@ -59,6 +72,25 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
+        List<Changes> ch=UsersDatabase.getInstance(getActivity()).changesDao().getChanges(id);
+        //Changes ch= new Changes("zaaa","c","a",20,"utorak",10);
+        String [] menuItems = new String[ch.size()];
+        //String [] menuItems = {"testing"};
+       int i=0;
+        for (Changes c: ch) {
+             menuItems[i] = c.toString();
+             i++;
+        }
+        ListView listView = (ListView) view.findViewById(R.id.list_view_container);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+
+                getActivity(), android.R.layout.simple_list_item_1, menuItems
+        );
+
+        listView.setAdapter(adapter);
+        return view;
     }
+
+
 }

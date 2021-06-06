@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,9 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.nfc.NfcAdapter.EXTRA_ID;
 
@@ -27,10 +31,12 @@ public class HomeActivity extends AppCompatActivity {
     private String full_name, email, dob;
     public static int EXTRA_ID;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -65,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
                     case 1:
                         fragment=new DashboardFragment(id); break;
                     case 2:
-                        fragment=new HistoryFragment(); break;
+                        fragment=new HistoryFragment(id); break;
                     case 3:
                         fragment=new UserFragment(full_name, email, dob, id); break;
                 } loadfragment(fragment);
@@ -101,4 +107,5 @@ public class HomeActivity extends AppCompatActivity {
             Log.i("error", "No main activity");
         else  startActivity(intent);
     }
+
 }

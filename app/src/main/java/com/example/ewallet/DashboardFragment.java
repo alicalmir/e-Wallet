@@ -12,7 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,6 +34,7 @@ public class DashboardFragment extends Fragment {
     private View amount;
     private Button add, subtract;*/
     private int id;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -63,6 +68,7 @@ public class DashboardFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -92,4 +98,7 @@ public class DashboardFragment extends Fragment {
         Log.i("changesssss", "cc"+changes.getAmount());
     }
 */
+
+
+
 }
