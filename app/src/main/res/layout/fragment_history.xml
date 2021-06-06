@@ -8,6 +8,7 @@
 
     <ListView
         android:id="@+id/list_view_container"
+        android:background="@color/lightblue"
         android:layout_width="match_parent"
         android:layout_height="452dp" />
 </FrameLayout>
