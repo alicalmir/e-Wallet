@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,12 +23,10 @@ public class UserFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private TextView user_fullname;
-    private TextView email;
-    private TextView date;
-    String passed_fullname;
-    String passed_email;
-    String passed_birth;
+    private TextView user_fullname, email, date, money;
+    private String passed_fullname, passed_email, passed_birth;
+    private int id;
+    private Button logout;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -38,10 +35,11 @@ public class UserFragment extends Fragment {
     public UserFragment() {
         // Required empty public constructor
     }
-    public UserFragment(String fullname,String email,String birth) {
+    public UserFragment(String fullname,String email,String birth ,int id) {
         passed_fullname=fullname;
         passed_email=email;
         passed_birth=birth;
+        this.id=id;
     }
 
     /**
@@ -69,9 +67,7 @@ public class UserFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
         }
-
 
     }
 
@@ -84,21 +80,28 @@ public class UserFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_user, container, false);
     }
 
-    public void LogoutBtnClicked(View view) {
-        Intent intent = new Intent(getActivity(), HomeActivity.class);
-        startActivity(intent);
-
-
-    }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        Users users = UsersDatabase.getInstance(getActivity()).usersDao().get(id);
+
         user_fullname = getView().findViewById(R.id.user_fullname);
         email=getView().findViewById(R.id.user_email);
         date=getView().findViewById(R.id.user_date);
+        money=getView().findViewById(R.id.current_money_dash);
+        logout=getView().findViewById(R.id.logout_user_id);
+
         user_fullname.setText("Full name: "+passed_fullname);
         email.setText("Email: "+passed_email);
         date.setText("Birth: "+passed_birth);
+        money.setText(""+users.getMoney());
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

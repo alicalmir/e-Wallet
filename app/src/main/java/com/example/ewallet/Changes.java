@@ -12,23 +12,26 @@ public class Changes {
     private String name;
     private String longitude, latitude;
     private double amount;
+    private String date;
     private int usersId;
 
-    public Changes(int id, String name, String longitude, String latitude, double amount, int usersId) {
+    public Changes(int id, String name, String longitude, String latitude, double amount, String date, int usersId) {
         this.id = id;
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
         this.amount = amount;
+        this.date=date;
         this.usersId = usersId;
     }
 
     @Ignore
-    public Changes(String name, String longitude, String latitude, double amount, int usersId) {
+    public Changes(String name, String longitude, String latitude, double amount, String date, int usersId) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
         this.amount = amount;
+        this.date =date;
         this.usersId = usersId;
     }
 
@@ -79,4 +82,13 @@ public class Changes {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 }

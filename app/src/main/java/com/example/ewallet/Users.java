@@ -14,6 +14,7 @@ public class Users {
     private int id;
     private String fullname, email, password;
     private String dob;
+    private double money=0;
 
     public Users(int id, String fullname, String email, String password, String dob) {
         this.id = id;
@@ -70,4 +71,13 @@ public class Users {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
 }

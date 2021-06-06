@@ -12,63 +12,62 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="65dp"
-            android:layout_height="94dp"
-            android:layout_marginEnd="128dp"
-            android:layout_marginRight="128dp"
-            android:layout_marginBottom="200dp"
+            android:layout_width="53dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/money4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/KM"
+            app:layout_constraintTop_toBottomOf="@+id/user_date" />
 
         <TextView
             android:id="@+id/KM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="64dp"
             android:text="KM"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/current_money_dash"
-            app:layout_constraintTop_toBottomOf="@+id/current_message" />
+            app:layout_constraintTop_toBottomOf="@+id/user_date" />
 
         <TextView
             android:id="@+id/current_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="421dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="64dp"
             android:text="@string/current_state_message"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/user_date" />
 
         <TextView
             android:id="@+id/current_money_dash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="64dp"
             android:text="0"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_message" />
+            app:layout_constraintStart_toEndOf="@+id/current_message"
+            app:layout_constraintTop_toBottomOf="@+id/user_date" />
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginBottom="50dp"
-            android:onClick="LogoutBtnClicked"
+            android:id="@+id/logout_user_id"
+            android:layout_width="151dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="56dp"
             android:text="Logout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_message" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -85,10 +84,11 @@
             android:id="@+id/user_fullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="248dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="260dp"
             android:text="TextView"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,10 +96,11 @@
             android:id="@+id/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="12dp"
             android:text="TextView"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_fullname" />
 
@@ -107,10 +108,11 @@
             android:id="@+id/user_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="12dp"
             android:text="TextView"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_email" />
 
@@ -120,9 +122,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="General info:"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginRight="106dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logout_user_id" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

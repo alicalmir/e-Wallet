@@ -25,5 +25,4 @@ public interface UsersDao {
     @Query("SELECT * FROM users WHERE email =:email")
     public Users getEmail(String email);
 
-
 }

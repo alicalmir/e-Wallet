@@ -16,9 +16,6 @@ public class LoginActivity extends AppCompatActivity {
     TextView register, email, password;
     Button login;
     public static int EXTRA_ID;
-    public static String FULL_NAME;
-    public static String EMAIL ="com.example.ewallet.email";
-    public static String BIRTH="com.example.ewallet.birth";
     
 
     @Override
@@ -44,14 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         Users user = UsersDatabase.getInstance(this).usersDao().getUser(email.getText().toString(), password.getText().toString());
 
         if(user != null){
-            String full_name=user.getFullname();
-            String email=user.getEmail();
-            String birth=user.getDob();
-
-            intent.putExtra(FULL_NAME,full_name);
-            intent.putExtra(EMAIL,email);
-            intent.putExtra(BIRTH,birth);
-
             intent.putExtra(String.valueOf(EXTRA_ID), user.getId());
             if(intent.resolveActivity(getPackageManager()) == null)
                 Log.i("error", "No home activity");
