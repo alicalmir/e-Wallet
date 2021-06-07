@@ -1,5 +1,7 @@
 package com.example.ewallet;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -28,6 +30,7 @@ public class HistoryFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private static int EXTRA_ID;
     private int id;
 
 
@@ -63,9 +66,8 @@ public class HistoryFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
         }
+
     }
 
     @Override
@@ -74,13 +76,14 @@ public class HistoryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         List<Changes> ch=UsersDatabase.getInstance(getActivity()).changesDao().getChanges(id);
-        //Changes ch= new Changes("zaaa","c","a",20,"utorak",10);
         String [] menuItems = new String[ch.size()];
-        //String [] menuItems = {"testing"};
-       int i=0;
+        int i=0;
         for (Changes c: ch) {
-             menuItems[i] = c.toString();
-             i++;
+            menuItems[i] = "\nChange done on: "+"\n"+
+                    "\nName: "+c.getName()+"\n"+
+                    "\nPlace: "+c.getLatitude()+" "+c.getLatitude()+"\n"+
+                    "\nAmount: "+c.getAmount()+" KM";
+            i++;
         }
         ListView listView = (ListView) view.findViewById(R.id.list_view_container);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -90,6 +93,12 @@ public class HistoryFragment extends Fragment {
 
         listView.setAdapter(adapter);
         return view;
+    }
+
+    public void addChanges(View view){
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra(String.valueOf(EXTRA_ID), id);
+        startActivity(intent);
     }
 
 

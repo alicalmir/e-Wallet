@@ -33,33 +33,12 @@ public class ShopMapActivity extends AppCompatActivity implements OnMapReadyCall
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.main_map);
         supportMapFragment.getMapAsync(this);
         geocoder = new Geocoder(this);
-
-
-
-
-
-    } /*
-    public void test(View view) {
-        LatLng sarajevo = new LatLng(43.8563, 18.4131);
-        googleMap.clear();
-        googleMap.animateCamera(CameraUpdateFactory.newLatLng(sarajevo));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sarajevo,15.0f));
-    } */
+    }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-
         googleMap = googleMap;
 
-        /*
-        LatLng sarajevo = new LatLng(43.8563, 18.4131);
-        googleMap.clear();
-
-
-        googleMap.animateCamera(CameraUpdateFactory.newLatLng(sarajevo));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sarajevo,15.0f));
-
-        googleMap.addMarker(new MarkerOptions().position(sarajevo).title("Marker in Sarajevo")); */
         Intent intent = getIntent();
         String location=intent.getStringExtra(MainActivity.LOC_MESSAGE);
 
@@ -70,13 +49,11 @@ public class ShopMapActivity extends AppCompatActivity implements OnMapReadyCall
                 Address address = addresses.get(0);
                 LatLng coordinates = new LatLng(address.getLatitude(),address.getLongitude());
 
-
                 MarkerOptions markerOptions = new MarkerOptions().position(coordinates).title(address.getLocality());
                 googleMap.addMarker(markerOptions);
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinates,16));
 
             }
-
 
         } catch (IOException e) {
             Toast.makeText(this, "The location does not exist", Toast.LENGTH_SHORT).show();

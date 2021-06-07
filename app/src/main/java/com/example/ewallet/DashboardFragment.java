@@ -76,13 +76,6 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        /*name= view.findViewById(R.id.name_of_change_dash);
-        place=view.findViewById(R.id.place_of_change_dash);
-        date=view.findViewById(R.id.date_of_change_dash);
-        amount=view.findViewById(R.id.amount_of_change_dash);
-        add=view.findViewById(R.id.add_button_dash);
-        subtract=view.findViewById(R.id.substract_button_dash);*/
-
         return view;
     }
 
@@ -90,15 +83,6 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
     }
-
-   /* public void add(View view){
-        Changes changes = new Changes(name.getText().toString(), place.getText().toString(), place.getText().toString(), Double.parseDouble(amount.toString()), date.getText().toString(), id);
-
-        UsersDatabase.getInstance(getActivity()).changesDao().add(changes);
-        Log.i("changesssss", "cc"+changes.getAmount());
-    }
-*/
-
 
 
 }

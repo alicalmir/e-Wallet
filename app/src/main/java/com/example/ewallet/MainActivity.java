@@ -1,13 +1,18 @@
 package com.example.ewallet;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 
+import android.Manifest;
 import android.content.Intent;
 
 
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,8 +22,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
-
-
 public class MainActivity extends AppCompatActivity  {
     public static int EXTRA_ID;
     private int id;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity  {
     private RadioGroup payment;
     private RadioButton radioButton;
     public static String LOC_MESSAGE;
-
+    String search_location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity  {
         date=findViewById(R.id.date_change_main);
         payment=findViewById(R.id.radioGroup);
 
-
+        search_location=place.getText().toString();
         Intent intent =getIntent();
         Bundle extras = intent.getExtras();
         if(extras!=null){
@@ -78,17 +81,43 @@ public class MainActivity extends AppCompatActivity  {
         intent.putExtra(String.valueOf(EXTRA_ID), id);
         startActivity(intent);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void locationBtnClicked(View view) {
 
-        String search_location=place.getText().toString();
-        Intent intent = new Intent(this,ShopMapActivity.class);
-        intent.putExtra(LOC_MESSAGE,search_location);
-        startActivity(intent);
+        if(isPermissionGranted()) {
+            String search_location=place.getText().toString();
+            Intent intent = new Intent(this,ShopMapActivity.class);
+            intent.putExtra(LOC_MESSAGE,search_location);
+            startActivity(intent);
+        } else
+            requestStoragePermission();
+    }
 
+    public boolean isPermissionGranted(){
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED)
+            return true;
+        return false;
+    }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void requestStoragePermission(){
+        if(shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)){
+            Toast.makeText(this, "Please allow the device to open GoogleMaps!", Toast.LENGTH_SHORT).show();
+        }else {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 25);
+        }
+    }
 
-
-
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults){
+        if(requestCode == 25){
+            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent(this,ShopMapActivity.class);
+                intent.putExtra(LOC_MESSAGE,search_location);
+                startActivity(intent);
+            }
+            else Toast.makeText(this, "Please allow the device to open GoogleMaps!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

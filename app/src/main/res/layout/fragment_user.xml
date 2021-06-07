@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/KM"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
@@ -37,8 +37,8 @@
             android:id="@+id/current_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="68dp"
             android:text="@string/current_state_message"
             android:textSize="24sp"
@@ -48,7 +48,7 @@
 
         <TextView
             android:id="@+id/current_money_dash"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"

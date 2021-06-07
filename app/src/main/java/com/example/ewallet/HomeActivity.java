@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     private int id;
     private String full_name, email, dob;
     public static int EXTRA_ID;
+    private FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -37,7 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+        /*floatingActionButton=findViewById(R.id.add_changes_button_home);
+        floatingActionButton.bringToFront();*/
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if(extras!=null) {
