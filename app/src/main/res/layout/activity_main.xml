@@ -160,11 +160,11 @@
         android:id="@+id/current_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="123dp"
-        android:layout_marginLeft="123dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginLeft="90dp"
         android:layout_marginBottom="29dp"
         android:onClick="locationBtnClicked"
-        android:text="Current location"
+        android:text="Show location on map"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

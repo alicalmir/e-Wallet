@@ -3,7 +3,11 @@ package com.example.ewallet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
+
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +16,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+
+
 
 public class MainActivity extends AppCompatActivity  {
     public static int EXTRA_ID;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity  {
     private EditText name, place, amount, date;
     private RadioGroup payment;
     private RadioButton radioButton;
+    public static String LOC_MESSAGE;
 
 
     @Override
@@ -79,11 +80,16 @@ public class MainActivity extends AppCompatActivity  {
     }
     public void locationBtnClicked(View view) {
 
+        String search_location=place.getText().toString();
         Intent intent = new Intent(this,ShopMapActivity.class);
+        intent.putExtra(LOC_MESSAGE,search_location);
         startActivity(intent);
+
+
+
+
+
     }
-
-
 
 
 }
