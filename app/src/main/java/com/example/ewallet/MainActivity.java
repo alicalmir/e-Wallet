@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity  {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,@NonNull int[] grantResults){
         if(requestCode == 25){
             if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                search_location=place.getText().toString();
                 Intent intent = new Intent(this,ShopMapActivity.class);
                 intent.putExtra(LOC_MESSAGE,search_location);
                 startActivity(intent);
