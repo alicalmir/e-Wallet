@@ -79,9 +79,9 @@ public class HistoryFragment extends Fragment {
         String [] menuItems = new String[ch.size()];
         int i=0;
         for (Changes c: ch) {
-            menuItems[i] = "\nChange done on: "+"\n"+
+            menuItems[i] = "\nChange done on: "+c.getDate()+"\n"+
                     "\nName: "+c.getName()+"\n"+
-                    "\nPlace: "+c.getLatitude()+" "+c.getLatitude()+"\n"+
+                    "\nPlace: "+c.getLatitude()+"\n"+
                     "\nAmount: "+c.getAmount()+" KM";
             i++;
         }
