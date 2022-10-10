@@ -25,7 +25,7 @@ import java.util.List;
 import static android.nfc.NfcAdapter.EXTRA_ID;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class  HomeActivity extends AppCompatActivity {
     MeowBottomNavigation bottomNavigation;
     private int id;
     private String full_name, email, dob;

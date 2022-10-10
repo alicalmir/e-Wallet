@@ -4,36 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".DashboardFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:src="@mipmap/background1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+
 
         <TextView
             android:id="@+id/welcome_message"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginStart="101dp"
-            android:layout_marginLeft="101dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginLeft="102dp"
             android:layout_marginTop="112dp"
             android:layout_marginEnd="102dp"
-            android:layout_marginRight="102dp"
             android:gravity="center"
             android:text="@string/welcome_message"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,14 +37,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginLeft="23dp"
+            android:layout_marginRight="23dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
             android:gravity="center"
             android:text="@string/changes_message"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
 
@@ -63,41 +53,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
-            android:layout_marginLeft="23dp"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="23dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
             android:gravity="center"
             android:text="@string/changes_message1"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/changes_message" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="90dp"
-            android:layout_height="78dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="304dp"
-            android:layout_marginRight="304dp"
-            android:src="@drawable/money3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
             android:gravity="center"
             android:text="@string/changes_message3"
-            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/changes_message2" />
@@ -107,12 +86,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
             android:gravity="center"
             android:text="@string/changes_message4"
+            android:textColor="@color/white"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,43 +101,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
             android:gravity="center"
             android:text="@string/changes_message5"
+            android:textColor="@color/white"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="0dp"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_change_button_hisotry"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:text="@string/changes_message6"
-            android:textSize="12sp"
+            android:clickable="true"
+            android:onClick="addChanges"
+            android:src="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="96dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="156dp"
-            android:layout_marginRight="156dp"
-            android:src="@drawable/money2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

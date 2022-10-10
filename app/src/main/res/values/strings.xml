@@ -7,10 +7,10 @@
     <string name="login_text">Already have an account?</string>
     <string name="register_register">REGISTER</string>
     <string name="register_form">PLEASE ENTER INFORMATION</string>
-    <string name="name_register">Name and Surname</string>
+    <string name="name_register">Name</string>
     <string name="email_register">Email</string>
     <string name="password_register">Password</string>
-    <string name="d_o_b">Enter birthday date</string>
+    <string name="d_o_b">Enter date</string>
     <string name="welcome_message">Welcome back!</string>
     <string name="changes_message">Have there been changes?</string>
     <string name="changes_message1">Apply them now! </string>
@@ -19,14 +19,17 @@
     <string name="changes_message3">With eWallet you can now keep track of your savings and spending!</string>
     <string name="changes_message4">Every time when you spend or earn money, make a change in eWallet.</string>
     <string name="changes_message5">eWallet will save every change in database and You can look at them whenever you want!</string>
-    <string name="changes_message6">This application is made by Naida Fatić and Ajdin Pašić.</string>
     <string name="current_state_message">Current state in wallet:</string>
     <string name="name_of_change">Name</string>
     <string name="place_of_change">Place</string>
     <string name="date_of_change">Date</string>
     <string name="amount_of_change">Amount</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
+
 
 </resources>

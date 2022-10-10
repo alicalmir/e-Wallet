@@ -1,5 +1,7 @@
 package com.example.ewallet;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +9,8 @@ import androidx.core.content.ContextCompat;
 
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 
 
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity  {
     private RadioButton radioButton;
     public static String LOC_MESSAGE;
     String search_location;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +126,8 @@ public class MainActivity extends AppCompatActivity  {
             else Toast.makeText(this, "Please allow the device to open GoogleMaps!", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
 
 }

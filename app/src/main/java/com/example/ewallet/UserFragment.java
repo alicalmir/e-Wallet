@@ -1,10 +1,20 @@
 package com.example.ewallet;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -28,6 +38,11 @@ public class UserFragment extends Fragment {
     private String passed_fullname, passed_email, passed_birth;
     private int id;
     private Button logout;
+
+    //public static final String CHANNEL_ID="My channel";
+    //public static final int NOT_ID=1;
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,6 +77,7 @@ public class UserFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +86,18 @@ public class UserFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel= new NotificationChannel(CHANNEL_ID, "My custom channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager= (NotificationManager) getSystemService(NotificationManager.class);
+
+            manager.createNotificationChannel(channel);
+        }*/
+
+
+
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +107,7 @@ public class UserFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_user, container, false);
     }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -96,6 +124,34 @@ public class UserFragment extends Fragment {
         date.setText("Birth: "+passed_birth);
         money.setText(""+users.getMoney());
         if(users.getMoney()<0){
+
+
+
+                /*new AlertDialog.Builder(UserFragment.this)
+                        .setMessage("R.string.eat")
+                        .setTitle("EGG TIMER")
+                        .show();
+
+                Intent intent= new Intent(UserFragment.this, Notification.class);
+                PendingIntent pendingIntent= PendingIntent.getActivity(UserFragment.this, 0, intent, 0);
+
+
+                NotificationCompat.Builder builder=new NotificationCompat.Builder(UserFragment.this,CHANNEL_ID );
+                builder.setContentTitle("EGG_TIMER")
+                        .setContentText("Let's eat")
+                        //.setSmallIcon(R.drawable.ic_baseline_notifications_24)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                        //.setColor(Color.RED)
+                        //.addAction(R.drawable.ic_baseline_snooze_24, "SNOOZE", pendingIntent);
+
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(UserFragment.this);
+                managerCompat.notify(NOT_ID, builder.build());*/
+
+
+
+
+
+
             money.setTextColor(Color.parseColor("#e85b51"));
         }else{
             money.setTextColor(Color.parseColor("#02c22f"));
@@ -110,6 +166,8 @@ public class UserFragment extends Fragment {
         });
 
     }
+
+
 
 
 
